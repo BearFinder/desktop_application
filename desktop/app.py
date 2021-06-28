@@ -31,6 +31,7 @@ class BearFinderApp(QMainWindow, Ui_BearFinder):
         pass
     
     def initUi(self):
+        self.scrollArea.setWidget(self.canvas)
         self.actionOpen.triggered.connect(self.openAskFileDialog)
         self.setWindowIcon(QIcon("desktop/src/icon.svg"))
         toggle_action = self.dockWidget.toggleViewAction()
