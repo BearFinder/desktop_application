@@ -1,9 +1,10 @@
-from PyQt5.QtGui import QIcon, QImage, QPixmap
+from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtCore import QDir
 from desktop.ui_window import Ui_BearFinder
 from PyQt5.QtWidgets import QErrorMessage, QMainWindow, QFileDialog
 from desktop.PreviewFileDialog import QFileDialogPreview
 import os.path
+import os
 
 
 class BearFinderApp(QMainWindow, Ui_BearFinder):
@@ -29,8 +30,13 @@ class BearFinderApp(QMainWindow, Ui_BearFinder):
             print(err)
             QErrorMessage("Someting went wrong")
         pass
+
+    def run_finder(self):
+        # TODO
+        pass
     
     def initUi(self):
+        self.actionQuit.triggered.connect(self.close)
         self.scrollArea.setWidget(self.canvas)
         self.actionOpen.triggered.connect(self.openAskFileDialog)
         self.setWindowIcon(QIcon("desktop/src/icon.svg"))
@@ -61,5 +67,3 @@ class BearFinderApp(QMainWindow, Ui_BearFinder):
             self.filename = filedialog.getFileSelected()
             self.work_directory = os.path.dirname(self.filename)
             self.set_image()
-
-
