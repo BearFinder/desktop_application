@@ -1,16 +1,20 @@
-from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtCore import QDir
+from PIL import Image, ImageQt, ImageDraw
+from PyQt6.QtGui import QIcon, QImage, QPixmap
+from PyQt6.QtCore import QDir
 from desktop.ui_window import Ui_BearFinder
-from PyQt5.QtWidgets import QErrorMessage, QMainWindow, QFileDialog
+from PyQt6.QtWidgets import QErrorMessage, QMainWindow, QFileDialog
 from desktop.PreviewFileDialog import QFileDialogPreview
 import os.path
 import os
 
 
 class BearFinderApp(QMainWindow, Ui_BearFinder):
-    def __init__(self):
+    def __init__(self, find_function):
+        print("Ffff")
         super().__init__()
         super().setupUi(self)
+        print("FF")
+        self.find_function = find_function
         self.info_data = {
             "tilte": "Discription",
             "count": 0,
@@ -18,13 +22,14 @@ class BearFinderApp(QMainWindow, Ui_BearFinder):
             "dir": "~/",
         }
         self.initUi()
+        print("F")
         self.filename = None
         self.work_directory = "~/"
     
     def set_image(self):
         try:
-            image = QPixmap(self.filename)
-            self.canvas.setPixmap(image)
+            image = self.find_function(self.filename)
+            self.canvas.setPixmap(QPixmap.fromImage(ImageQt(image)))
             self.canvas.update()
         except Exception as err:
             print(err)

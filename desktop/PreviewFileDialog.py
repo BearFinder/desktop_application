@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import QFileDialog, QVBoxLayout, QLabel
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtCore import Qt
+from PyQt6.QtWidgets import QFileDialog, QVBoxLayout, QLabel
+from PyQt6.QtGui import QPixmap
+from PyQt6.QtCore import Qt
 
 
 class QFileDialogPreview(QFileDialog):
