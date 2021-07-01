@@ -1,8 +1,10 @@
-from desktop import run_application
-from detector import image_pillow, init
+import sys
+from PyQt6.QtWidgets import QApplication
+from app import BearFinderApp
 
 
 if __name__ == '__main__':
-    init("model.pth")
-    print("F")
-    run_application(image_pillow)
+    app = QApplication(sys.argv)
+    ex = BearFinderApp()
+    ex.show()
+    sys.exit(app.exec())
