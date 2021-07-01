@@ -8,7 +8,9 @@ import os.path
 try:
     from detector import init, image_pillow
 except ImportError:
-    pass
+    import subprocess
+    subprocess.call("bash install.sh")
+
 
 class BearFinderApp(QMainWindow, Ui_BearFinder):
     def __init__(self, model_name: str):
