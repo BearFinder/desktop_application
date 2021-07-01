@@ -5,6 +5,6 @@ from app import BearFinderApp
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = BearFinderApp()
+    ex = BearFinderApp("model.pth")
     ex.show()
     sys.exit(app.exec())

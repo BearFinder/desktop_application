@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'desktop/window.ui'
+# Form implementation generated from reading ui file 'window.ui'
 #
 # Created by: PyQt6 UI code generator 6.1.0
 #
@@ -22,7 +22,7 @@ class Ui_BearFinder(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 671, 531))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 648, 531))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.horizontalLayout.addWidget(self.scrollArea)
@@ -45,6 +45,7 @@ class Ui_BearFinder(object):
         self.statusbar.setObjectName("statusbar")
         BearFinder.setStatusBar(self.statusbar)
         self.dockWidget = QtWidgets.QDockWidget(BearFinder)
+        self.dockWidget.setMinimumSize(QtCore.QSize(120, 174))
         self.dockWidget.setObjectName("dockWidget")
         self.dockWidgetContents = QtWidgets.QWidget()
         self.dockWidgetContents.setObjectName("dockWidgetContents")
@@ -55,6 +56,16 @@ class Ui_BearFinder(object):
         self.infoText.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignTop)
         self.infoText.setObjectName("infoText")
         self.verticalLayout.addWidget(self.infoText)
+        self.colorButton = QtWidgets.QPushButton(self.dockWidgetContents)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(100)
+        sizePolicy.setHeightForWidth(self.colorButton.sizePolicy().hasHeightForWidth())
+        self.colorButton.setSizePolicy(sizePolicy)
+        self.colorButton.setMinimumSize(QtCore.QSize(80, 80))
+        self.colorButton.setText("")
+        self.colorButton.setObjectName("colorButton")
+        self.verticalLayout.addWidget(self.colorButton)
         self.dockWidget.setWidget(self.dockWidgetContents)
         BearFinder.addDockWidget(QtCore.Qt.DockWidgetArea(2), self.dockWidget)
         self.actionOpen = QtGui.QAction(BearFinder)
